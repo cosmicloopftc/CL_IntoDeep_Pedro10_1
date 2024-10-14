@@ -51,7 +51,7 @@ public class HardwareRobot {
 
 //**ADD on subsequent connected device.
     boolean drivetrainConnected = true;
-    boolean intakeConnected = true;
+    boolean intakeConnected = false;
     boolean outtakeConnected = false;
     boolean hangConnected = false;
     boolean sensorConnected = false;
@@ -123,7 +123,7 @@ public class HardwareRobot {
 
 
 //?unknown source        batteryVoltageSensor = hardwareMap.voltageSensor.iterator().next();
-        batteryVoltageSensor = hardwareMap.voltageSensor.get("Expansion Hub 2");       //GeorgeFIRST kickoff video
+        //batteryVoltageSensor = hardwareMap.voltageSensor.get("Expansion Hub 2");       //GeorgeFIRST kickoff video
 
     }
 
