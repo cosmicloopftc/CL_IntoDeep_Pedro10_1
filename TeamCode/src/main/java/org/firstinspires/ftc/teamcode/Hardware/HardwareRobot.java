@@ -1,10 +1,13 @@
 package org.firstinspires.ftc.teamcode.Hardware;
 
+import android.graphics.Color;
+
 import com.qualcomm.hardware.lynx.LynxModule;
 import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.IMU;
 
+import java.util.Arrays;
 import java.util.List;
 import com.acmerobotics.dashboard.config.Config;
 import com.qualcomm.robotcore.hardware.VoltageSensor;
@@ -39,12 +42,13 @@ public class HardwareRobot {
     public IMU imu;
 
     //**Create variable name for an object to be created--THIS IS WHERE new device setup is added.
-    HardwareDrivetrain drivetrain = null;
-    HardwareIntake intake = null;
-    HardwareOuttake outtake = null;
-    HardwareHang hang = null;
-    HardwareSensors sensor = null;
-    HardwareGamePadLED gamePadLED = null;
+    public HardwareDrivetrain drivetrain = null;
+    public HardwareIntake intake = null;
+    public HardwareOuttake outtake = null;
+    public HardwareHang hang = null;
+    public HardwareSensors sensor = null;
+    public HardwareGamePadLED gamePadLED = null;
+    public HardwareLED AdafruitLED = null;
 
     //**ADD on subsequent connected device.
     boolean drivetrainConnected = true;
@@ -53,6 +57,7 @@ public class HardwareRobot {
     boolean hangConnected = true;
     boolean sensorConnected = true;
     boolean gamePadLEDConnected = true;
+    boolean LEDConnected = true;
 
     List<LynxModule> allHubs = null;
     LynxModule CTRLHub = null;
@@ -117,6 +122,11 @@ public class HardwareRobot {
             gamePadLED.init(hardwareMap);
         }
 
+        if (LEDConnected) {
+            AdafruitLED = new HardwareLED();
+            AdafruitLED.init(hardwareMap);
+        }
+
 
 //?unknown source        batteryVoltageSensor = hardwareMap.voltageSensor.iterator().next();
         batteryVoltageSensor = hardwareMap.voltageSensor.get("Expansion Hub 2");       //GeorgeFIRST kickoff video
@@ -127,6 +137,7 @@ public class HardwareRobot {
     public void start(){
         //PUT functions here
 
+
     }
 
     public void loop(){
@@ -136,6 +147,7 @@ public class HardwareRobot {
     public void stop () {
 
     }
+
 
     //reading Control/Expansion Hub Data
     public Number[] bulkRead() {

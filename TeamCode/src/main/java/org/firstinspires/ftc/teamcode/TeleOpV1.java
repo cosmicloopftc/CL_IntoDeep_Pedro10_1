@@ -66,7 +66,7 @@ public class TeleOpV1 extends OpMode {
     public void init() {
         poseUpdater = new PoseUpdater(hardwareMap);
         dashboardPoseTracker = new DashboardPoseTracker(poseUpdater);
-        follower = new Follower(hardwareMap);
+        //follower = new Follower(hardwareMap);
 
         robot.init(hardwareMap);   //note hardwareMap is default and part of FTC Robot Controller HardwareMap class
         robot.imu.resetYaw();      //reset the IMU/Gyro angle with each match.
@@ -88,13 +88,18 @@ public class TeleOpV1 extends OpMode {
 
         telemetry.addData(">", "Hardware Initialized");
         telemetry.update();
+
+
     }
 
     @Override
     public void init_loop() {
+
         telemetry.addData("Present Heading by IMU in degree = ", "(%.1f)", robot.imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.DEGREES));
         telemetry.addData("Robot Driving Orientation = ", drivingOrientation);
         telemetry.update();
+        robot.AdafruitLED.LEDinitReady();
+
     }
 
     @Override
