@@ -64,30 +64,30 @@ public class TeleOpV1 extends OpMode {
 
     @Override
     public void init() {
-        poseUpdater = new PoseUpdater(hardwareMap);
-        dashboardPoseTracker = new DashboardPoseTracker(poseUpdater);
+       // poseUpdater = new PoseUpdater(hardwareMap);
+       // dashboardPoseTracker = new DashboardPoseTracker(poseUpdater);
         //follower = new Follower(hardwareMap);
 
-        robot.init(hardwareMap);   //note hardwareMap is default and part of FTC Robot Controller HardwareMap class
-        robot.imu.resetYaw();      //reset the IMU/Gyro angle with each match.
-        runtime.reset();
+        //robot.init(hardwareMap);   //note hardwareMap is default and part of FTC Robot Controller HardwareMap class
+//        robot.imu.resetYaw();      //reset the IMU/Gyro angle with each match.
+//        runtime.reset();
 
-        telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
+      //  telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
 
         //Important Step 2: Get access to a list of Expansion Hub Modules to enable changing caching methods.
         //List<LynxModule> allHubs = hardwareMap.getAll(LynxModule.class);
-        List<LynxModule> allHubs = hardwareMap.getAll(LynxModule.class);
-        for (LynxModule hub : allHubs) {
-            hub.setBulkCachingMode(LynxModule.BulkCachingMode.AUTO);
-        }
+    //    List<LynxModule> allHubs = hardwareMap.getAll(LynxModule.class);
+//        for (LynxModule hub : allHubs) {
+//            hub.setBulkCachingMode(LynxModule.BulkCachingMode.AUTO);
+//        }
 
-        follower.startTeleopDrive();
-        telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
-        Drawing.drawRobot(poseUpdater.getPose(), "#4CAF50");
-        Drawing.sendPacket();
+   //     follower.startTeleopDrive();
+       // telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
+    //    Drawing.drawRobot(poseUpdater.getPose(), "#4CAF50");
+   //     Drawing.sendPacket();
 
-        telemetry.addData(">", "Hardware Initialized");
-        telemetry.update();
+//        telemetry.addData(">", "Hardware Initialized");
+//        telemetry.update();
 
 
     }
@@ -95,11 +95,13 @@ public class TeleOpV1 extends OpMode {
     @Override
     public void init_loop() {
 
-        telemetry.addData("Present Heading by IMU in degree = ", "(%.1f)", robot.imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.DEGREES));
-        telemetry.addData("Robot Driving Orientation = ", drivingOrientation);
-        telemetry.update();
-        robot.AdafruitLED.LEDinitReady();
+      //  telemetry.addData("Present Heading by IMU in degree = ", "(%.1f)", robot.imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.DEGREES));
+      //  telemetry.addData("Robot Driving Orientation = ", drivingOrientation);
 
+        //status light
+
+        robot.AdafruitLED.LEDinitReady();
+//        telemetry.update();
     }
 
     @Override

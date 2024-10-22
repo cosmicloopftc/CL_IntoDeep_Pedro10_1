@@ -51,12 +51,12 @@ public class HardwareRobot {
     public HardwareLED AdafruitLED = null;
 
     //**ADD on subsequent connected device.
-    boolean drivetrainConnected = true;
-    boolean intakeConnected = true;
-    boolean outtakeConnected = true;
-    boolean hangConnected = true;
-    boolean sensorConnected = true;
-    boolean gamePadLEDConnected = true;
+    boolean drivetrainConnected = false;
+    boolean intakeConnected = false;
+    boolean outtakeConnected = false;
+    boolean hangConnected = false;
+    boolean sensorConnected = false;
+    boolean gamePadLEDConnected = false;
     boolean LEDConnected = true;
 
     List<LynxModule> allHubs = null;
