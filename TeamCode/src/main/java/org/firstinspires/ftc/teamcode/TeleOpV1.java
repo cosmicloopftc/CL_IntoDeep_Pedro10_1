@@ -99,8 +99,13 @@ public class TeleOpV1 extends OpMode {
       //  telemetry.addData("Robot Driving Orientation = ", drivingOrientation);
 
         //status light
-
+//        try {
+//            robot.AdafruitLED.LEDinitReady();
+//        } catch (Exception e) {
+//            System.out.println();
+//        }
         robot.AdafruitLED.LEDinitReady();
+
 //        telemetry.update();
     }
 
